@@ -9,7 +9,10 @@
             :description="product.description"
             :category="product.category"
             :slug="product.slug"
+            :price="product.price"
+            :stock="product.stock"
           />
+          {{ info }}
         </b-col>
       </b-row>
     </b-container>
@@ -18,7 +21,7 @@
 
 <script>
 import ProductCatalog from "../components/ProductCatalog.vue"
-import WildflowersCase from "../assets/products/wildflowers-case.webp"
+import axios from "axios";
 
 export default {
   name: 'Inicio',
@@ -36,26 +39,16 @@ export default {
     ProductCatalog
   },
   data: () => ({
-    products: [
-      {
-        "id": 1,
-        "name": "Carcasa Wildflowers iPhone",
-        "slug": "carcasa-wildflowers",
-        "description": "Con un perfil delgado, un acabado antiarañazos y detalles dorados, nuestras fundas para iPhone mantienen su teléfono bonito y protegido, todo mientras deja que su color brille.",
-        "image": WildflowersCase,
-        "category": "iphone",
-      },
-      {
-        "id": 2,
-        "name": "Carcasa Wildflowers iPhone 2",
-        "slug": "carcasa-wildflowers-2",
-        "description": "Con un perfil delgado, un acabado antiarañazos y detalles dorados, nuestras fundas para iPhone mantienen su teléfono bonito y protegido, todo mientras deja que su color brille.",
-        "image": WildflowersCase,
-        "category": "iphone",
-      }
-    ],
-    
+    products: null
   }),
+  async created() {
+    try {
+      const response = await axios.get(`https://localhost:5001/Product`)
+      this.products = response.data
+    } catch {
+      console.log('Error al obtener los datos.')
+    }
+  }
 }
 </script>
 

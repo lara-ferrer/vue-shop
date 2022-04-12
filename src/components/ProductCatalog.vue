@@ -6,7 +6,7 @@
       <h2 class="product-catalog__title">{{ name }}</h2>
       <p>{{ description }}</p>
       <div class="product-catalog__buttons">
-        <router-link :to="{ name: 'Product', params: { category, product, name, image } }" class="button">Ver producto</router-link>
+        <router-link :to="{ name: 'Product', params: { category, product, name, description, image, price, slug, stock } }" class="button">Ver producto</router-link>
         <a href="#" class="button">Añadir al carrito</a>
       </div>
     </div>
@@ -22,6 +22,8 @@ export default {
     description: String,
     category: String,
     slug: String,
+    price: String,
+    stock: String,
   },
 }
 </script>
