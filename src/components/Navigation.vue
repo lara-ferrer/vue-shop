@@ -5,28 +5,17 @@
         <router-link to="/" class="nav__link">Inicio</router-link>
         <a class="nav__cart" @click="showCart"><b-icon-cart-fill></b-icon-cart-fill></a>
       </div>
-      <Cart v-show="isCartVisible" />
     </div>
 </template>
 
 <script>
 import { BIconCartFill } from 'bootstrap-vue'
-import Cart from "../components/Cart.vue"
 
 export default {
   name: 'Navigation',
   components: {
     BIconCartFill,
-    Cart
   },
-  data: () => ({
-    isCartVisible: false,
-  }),
-  methods: {
-    showCart() {
-      this.isCartVisible = !this.isCartVisible;
-    },
-  }
 }
 </script>
 
