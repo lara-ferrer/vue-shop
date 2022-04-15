@@ -12,8 +12,14 @@
           </div>
           <p>{{ $route.params.description }}</p>
           <div class="product__key-points">
-            <p>Tiempo de entrega:</p>
-            <p>5 días</p>
+            <div class="product__key-point">
+              <p>Tiempo de entrega:</p>
+              <p>4 días</p>
+            </div>
+            <div class="product__key-point">
+              <p>Stock disponible</p>
+              <p>{{ $route.params.stock > 0 ? 'Hay existencias' : 'No hay existencias' }}</p>
+            </div>
           </div>
           <a href="#" class="button button--product">Añadir al carrito</a>
         </b-col>
@@ -24,7 +30,7 @@
 
 <script>
 export default {
-  name: 'Product',
+  name: 'Product'
 }
 </script>
 
@@ -53,11 +59,22 @@ export default {
   }
 
   .product__key-points {
-    border-top: 1px solid #e0e0e0;
+    margin: 2rem 0;
+  }
+
+  .product__key-point {
     border-bottom: 1px solid #e0e0e0;
     padding: 1rem 0;
     display: flex;
     justify-content: space-between;
+  }
+
+  .product__key-point p {
+    margin-bottom: 0;
+  }
+
+  .product__key-point:first-child {
+    border-top: 1px solid #e0e0e0;
   }
 
   .button--product {
