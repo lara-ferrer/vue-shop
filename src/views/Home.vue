@@ -20,11 +20,14 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 import ProductCatalog from "../components/ProductCatalog.vue"
-import axios from "axios";
 
 export default {
   name: 'Inicio',
+  components: {
+    ProductCatalog
+  },
   head: {
     title: {
       inner: 'Caseland',
@@ -35,20 +38,14 @@ export default {
       { name: 'description', content: 'My description' }
     ]
   },
-  components: {
-    ProductCatalog
+  methods: {
+    ...mapActions(['fetchProducts'])
   },
-  data: () => ({
-    products: null
-  }),
-  async created() {
-    try {
-      const response = await axios.get(`https://localhost:5001/Product`)
-      this.products = response.data
-    } catch {
-      console.log('Error al obtener los datos.')
-    }
+  computed: mapGetters(['products']),
+  created() {
+    this.fetchProducts()
   }
+
 }
 </script>
 
