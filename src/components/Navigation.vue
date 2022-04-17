@@ -3,19 +3,32 @@
       <router-link to="/"><img src="../assets/images/logo.png" class="nav__logo" alt="Logotipo Caseland"></router-link>
       <div class="nav__menu">
         <router-link to="/" class="nav__link">Inicio</router-link>
-        <a class="nav__cart" @click="showCart"><b-icon-cart-fill></b-icon-cart-fill></a>
+        <a class="nav__cart" @click="showCart()"><b-icon-cart-fill></b-icon-cart-fill></a>
+        <Cart v-if="isCartOpen" />
       </div>
     </div>
 </template>
 
 <script>
 import { BIconCartFill } from 'bootstrap-vue'
+import Cart from './Cart.vue'
 
 export default {
   name: 'Navigation',
   components: {
     BIconCartFill,
+    Cart,
   },
+  data: () => {
+    return {
+      isCartOpen: false
+    }
+  },
+  methods: {
+    showCart() {
+      this.isCartOpen = !this.isCartOpen
+    }
+  }
 }
 </script>
 
