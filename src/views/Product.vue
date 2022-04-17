@@ -24,13 +24,22 @@
           <a href="#" class="button button--product">Añadir al carrito</a>
         </b-col>
       </b-row>
+      <b-row>
+        <b-col lg="12">
+          <RelatedProducts />
+        </b-col>
+      </b-row>
     </b-container>
   </div>
 </template>
 
 <script>
+import RelatedProducts from '../components/RelatedProducts.vue'
 export default {
-  name: 'Product'
+  name: 'Product',
+  components: {
+    RelatedProducts
+  }
 }
 </script>
 
