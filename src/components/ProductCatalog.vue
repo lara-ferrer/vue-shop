@@ -7,16 +7,19 @@
       <p>{{ description }}</p>
       <div class="product-catalog__buttons">
         <router-link :to="{ name: 'Product', params: { category, product, name, description, image, price, slug, stock } }" class="button">Ver producto</router-link>
-        <a href="#" class="button">Añadir al carrito</a>
+        <button class="button" @click="addToCart({ productId: id, quantity: 1 })">Añadir al carrito</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'ProductCatalog',
   props: {
+    id: Number,
     name: String,
     image: String,
     description: String,
@@ -24,6 +27,9 @@ export default {
     slug: String,
     price: String,
     stock: String,
+  },
+  methods: {
+    ...mapActions(['addToCart'])
   },
 }
 </script>
