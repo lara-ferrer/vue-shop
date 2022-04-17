@@ -4,6 +4,7 @@
       <b-row>
         <b-col sm="12" lg="4" v-for="product in products" :key="product.id">
           <ProductCatalog 
+            :id="product.id"
             :name="product.name"
             :image="product.image"
             :description="product.description"
@@ -12,7 +13,6 @@
             :price="product.price"
             :stock="product.stock"
           />
-          {{ info }}
         </b-col>
       </b-row>
     </b-container>
