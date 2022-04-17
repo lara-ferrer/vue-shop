@@ -1,14 +1,27 @@
 <template>
     <div class="cart">
         <p>Carrito</p>
+        <ul>
+            <li v-for="product in cart" :key="product.id">
+                {{ product.productId }} ({{ product.quantity }})
+            </li>
+        </ul>
         <router-link to="/checkout" class="button">Checkout</router-link>
     </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+
 export default {
   name: 'Cart',
-  
+  methods: {
+    ...mapActions(['fetchCart']),
+  },
+  computed: mapGetters(['cart']),
+  created() {
+    this.fetchCart()
+  }
 }
 </script>
 
