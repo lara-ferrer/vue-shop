@@ -7,12 +7,11 @@
             :name="product.name"
             :image="product.image"
             :description="product.description"
-            :category="product.category"
+            :categoryId="product.categoryId"
             :slug="product.slug"
             :price="product.price"
             :stock="product.stock"
           />
-          {{ info }}
         </b-col>
       </b-row>
     </b-container>
@@ -39,7 +38,7 @@ export default {
     ]
   },
   methods: {
-    ...mapActions(['fetchProducts'])
+    ...mapActions(['fetchProducts']),
   },
   computed: mapGetters(['products']),
   created() {
