@@ -1,32 +1,47 @@
 <template>
-    <div class="cart">
-        <h2>Carrito</h2>
-        <div v-if="cart.length">
-          <div v-for="product in cart" :key="product.id" class="cart__list">
-            <CartItem
-              :productId="product.productId"
-              :quantity="product.quantity"
-            />
-          </div>
-        </div>
-        <div v-else class="cart__list">
-          <p>No hay productos en el carrito</p>
-        </div>
-        <router-link :to="{ name: 'Checkout' }" class="button">Checkout</router-link>
+  <div class="cart">
+    <h2>Carrito</h2>
+    <div v-if="cart.length">
+      <div v-for="product in cart" :key="product.id" class="cart__list">
+        <CartItem
+          :productId="product.productId"
+          :quantity="product.quantity"
+        />
+      </div>
+      <CartTotal 
+        :totalPrice="totalPrice"
+      />
     </div>
+    <div v-else class="cart__list">
+      <p>No hay productos en el carrito</p>
+    </div>
+    <router-link :to="{ name: 'Checkout' }" class="button">Checkout</router-link>
+  </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
 import CartItem from "./CartItem.vue";
+import CartTotal from "./CartTotal.vue";
 
 export default {
   name: 'Cart',
   components: {
-    CartItem
+    CartItem,
+    CartTotal
   },
   computed: {
-    ...mapGetters(['cart']),
+    ...mapGetters(['cart', 'products']),
+    totalPrice() {
+      let finalPrice = 0;
+
+      this.cart.map(item => {
+        const product = this.products.filter(product => product.id === item.productId)[0]
+        finalPrice += item.quantity * product.price;
+      });
+
+      return finalPrice;
+    }
   },
 }
 </script>
