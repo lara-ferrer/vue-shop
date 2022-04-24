@@ -1,7 +1,15 @@
 <template>
     <div class="cart__item">
-      <img :src="`${getProductInfo.image}`" :alt="`${getProductInfo.name}`" class="cart__item__image">
-      {{ getProductInfo.name }} x {{ this.quantity }}
+      <div class="cart__product-info">
+        <img :src="`${getProductInfo.image}`" :alt="`${getProductInfo.name}`" class="cart__item__image">
+        <p>{{ getProductInfo.name }}</p>
+      </div>
+      <div class="cart__product-price">
+        <p>{{ getProductInfo.price }} €</p>
+      </div>
+      <div class="cart__quantity">
+        {{ this.quantity }}
+      </div>
     </div>
 </template>
 
@@ -24,6 +32,19 @@ export default {
 </script>
 
 <style scoped>
+  .cart__item, .cart__product-info {
+    display: flex; 
+  }
+
+  .cart__item {
+    align-content: space-between;
+    gap: 1rem;
+  }
+
+  .cart__product-price {
+    display: inline;
+  }
+  
   .cart__item__image {
     width: 10%;
   }
