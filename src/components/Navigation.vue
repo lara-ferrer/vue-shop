@@ -11,7 +11,7 @@
 
 <script>
 import { BIconCartFill } from 'bootstrap-vue'
-import Cart from './Cart.vue'
+import Cart from './Cart/Cart.vue'
 
 export default {
   name: 'Navigation',
