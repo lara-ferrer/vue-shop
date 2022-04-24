@@ -14,12 +14,12 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'ProductCatalog',
   props: {
-    id: String,
+    id: Number,
     name: String,
     image: String,
     description: String,
@@ -27,6 +27,9 @@ export default {
     slug: String,
     price: String,
     stock: String,
+  },
+  methods: {
+    ...mapActions(['addToCart'])
   },
   computed: {
     ...mapGetters(["categories"]),
