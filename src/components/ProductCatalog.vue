@@ -2,7 +2,7 @@
   <div class="product-catalog__item">
     <img :src="`${image}`" class="product-catalog__image" :alt="`${name}`">
     <div class="product-catalog__content">
-      <span class="product-catalog__category">{{ categories.name }}</span>
+      <span class="product-catalog__category">{{ filterByCategory.name }}</span>
       <h2 class="product-catalog__title">{{ name }}</h2>
       <p>{{ description }}</p>
       <div class="product-catalog__buttons">
@@ -14,11 +14,12 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'ProductCatalog',
   props: {
+    id: String,
     name: String,
     image: String,
     description: String,
@@ -27,15 +28,12 @@ export default {
     price: String,
     stock: String,
   },
-  methods: {
-    ...mapActions(['fetchCategoriesById']),
-  },
   computed: {
     ...mapGetters(["categories"]),
+    filterByCategory() {
+      return this.categories.filter(category => category.id === this.categoryId)[0]
+    }
   },
-  created() {
-    this.fetchCategoriesById(this.categoryId)
-  }
 }
 </script>
 
