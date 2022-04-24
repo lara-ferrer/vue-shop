@@ -7,5 +7,15 @@
 <script>
 export default {
   name: 'Checkout',
+  head: {
+    title: {
+      inner: 'Checkout',
+      separator: '|',
+      complement: 'Caseland'
+    },
+    meta: [
+      { name: 'description', content: 'Si has elegido ya tus productos, puedes hacer el pago ahora.' }
+    ]
+  },
 }
 </script>
