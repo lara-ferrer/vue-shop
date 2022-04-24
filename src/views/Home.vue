@@ -3,7 +3,8 @@
     <b-container class="bv-example-row">
       <b-row>
         <b-col sm="12" lg="4" v-for="product in products" :key="product.id">
-          <ProductCatalog 
+          <ProductCatalog
+            :id="product.id"
             :name="product.name"
             :image="product.image"
             :description="product.description"
@@ -19,7 +20,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 import ProductCatalog from "../components/ProductCatalog.vue"
 
 export default {
@@ -37,14 +38,7 @@ export default {
       { name: 'description', content: 'My description' }
     ]
   },
-  methods: {
-    ...mapActions(['fetchProducts']),
-  },
   computed: mapGetters(['products']),
-  created() {
-    this.fetchProducts()
-  }
-
 }
 </script>
 
