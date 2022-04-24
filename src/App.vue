@@ -22,9 +22,10 @@ export default {
   created() {
     this.fetchProducts()
     this.fetchCategories()
+    this.fetchCart()
   },
   methods: {
-    ...mapActions(['fetchProducts', 'fetchCategories'])
+    ...mapActions(['fetchProducts', 'fetchCategories', 'fetchCart'])
   },
   computed: {
     isMock() {
