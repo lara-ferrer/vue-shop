@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <b-container class="bv-example-row">
+    <b-container>
       <b-row>
         <b-col sm="12" lg="4" v-for="product in products" :key="product.id">
           <ProductCatalog
