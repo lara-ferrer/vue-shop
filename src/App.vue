@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import Navigation from "./components/Navigation.vue"
 import Footer from "./components/Footer.vue"
 
@@ -17,6 +18,13 @@ export default {
   components: {
     Navigation,
     Footer
+  },
+  created() {
+    this.fetchProducts()
+    this.fetchCategories()
+  },
+  methods: {
+    ...mapActions(['fetchProducts', 'fetchCategories'])
   },
   computed: {
     isMock() {

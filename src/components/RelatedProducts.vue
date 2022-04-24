@@ -11,17 +11,11 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'ProductsCarousel',
-  methods: {
-    ...mapActions(['fetchProducts'])
-  },
   computed: mapGetters(['products']),
-  created() {
-    this.fetchProducts()
-  }
 }
 </script>
 
