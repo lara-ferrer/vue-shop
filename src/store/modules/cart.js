@@ -13,7 +13,6 @@ const getters = {
 const actions = {
     async fetchCart({ commit }) {
         const response = await axios.get(resourceURI);    
-        console.log(response.data)
         commit('setCart', response.data);
     },
     async addToCart( { commit }, cart) {
