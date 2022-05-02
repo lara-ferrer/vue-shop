@@ -1,6 +1,7 @@
 <template>
     <div class="cart__item">
       <div class="cart__product-info">
+        <b-icon-trash class="cart__remove-icon" @click="removeCart({ id: id })" />
         <img :src="`${getProductInfo.image}`" :alt="`${getProductInfo.name}`" class="cart__item__image">
         <p>{{ getProductInfo.name }}</p>
       </div>
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import { BIconTrash } from "bootstrap-vue";
 import { mapGetters } from 'vuex';
 import { mapActions } from 'vuex';
 
@@ -24,8 +26,11 @@ export default {
     productId: Number,
     quantity: Number
   },
+  components: {
+    BIconTrash
+  },
   methods: {
-    ...mapActions(['updateCart'])
+    ...mapActions(['updateCart', 'removeCart'])
   },
   computed: {
     ...mapGetters(['products']), 
@@ -59,7 +64,12 @@ export default {
     width: 10%;
   }
   
-  .cart__counter {
+  .cart__counter, .cart__remove-icon {
     cursor: pointer;
+  }
+
+  .cart__remove-icon {
+    align-self: center;
+    margin-right: 1rem;
   }
 </style>
