@@ -3,8 +3,8 @@
       <router-link to="/"><img src="../assets/images/logo.png" class="nav__logo" alt="Logotipo Caseland"></router-link>
       <div class="nav__menu">
         <router-link to="/" class="nav__link">Inicio</router-link>
-        <a class="nav__cart" @click="showCart()"><b-icon-cart-fill></b-icon-cart-fill></a>
-        <Cart v-if="isCartOpen" />
+        <b-icon-cart-fill class="nav__cart" @click="showCart()" />
+        <Cart :isCartOpen="isCartOpen" />
       </div>
     </div>
 </template>
@@ -63,5 +63,4 @@ export default {
   .nav__cart {
     cursor: pointer;
   }
-
 </style>
