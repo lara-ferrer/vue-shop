@@ -12,15 +12,15 @@ const routes = [
     name: 'Home',
     component: Home
   },
-  { 
-    path: '/:slug',
-    name: 'Product',
-    component: Product
-  },
   {
     path: '/checkout',
     name: 'Checkout',
     component: Checkout
+  },
+  { 
+    path: '/:slug',
+    name: 'Product',
+    component: Product
   },
 ]
 
