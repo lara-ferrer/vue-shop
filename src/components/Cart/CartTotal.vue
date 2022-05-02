@@ -1,6 +1,5 @@
 <template>
-    <div class="cart__total">
-      <p>Total:</p>
+    <div class="cart__total-amount">
       {{ totalPrice }}
     </div>
 </template>
@@ -10,14 +9,18 @@ import { mapGetters } from 'vuex';
 
 export default {
   name: 'CartTotal',
-  props: {
-    totalPrice: Number
-  },
   computed: {
-    ...mapGetters(['products']),
-    getProductInfo() {
-      return this.products.filter(product => product.id === this.productId)[0]
-    },
+    ...mapGetters(['cart', 'products']),
+    totalPrice() {
+      let finalPrice = 0;
+
+      this.cart.map(item => {
+        const product = this.products.filter(product => product.id === item.productId)[0]
+        finalPrice += item.quantity * product.price;
+      });
+
+      return finalPrice;
+    }
   },
 }
 </script>
