@@ -5,6 +5,7 @@
         <h1>Checkout</h1>
         <div v-for="product in cart" :key="product.id">
           <CartItem
+            :id="product.id"
             :productId="product.productId"
             :quantity="product.quantity"
           />
@@ -12,6 +13,7 @@
       </b-col>
       <b-col sm="12" md="4">
         <p>TOTAL</p>
+        <CartTotal />
       </b-col>
     </b-row>
   </b-container>
@@ -20,11 +22,13 @@
 <script>
 import { mapGetters } from 'vuex';
 import CartItem from "../components/Cart/CartItem.vue";
+import CartTotal from "../components/Cart/CartTotal.vue";
 
 export default {
   name: 'Checkout',
   components: {
-    CartItem
+    CartItem,
+    CartTotal
   },
   computed: {
     ...mapGetters(['cart']),
