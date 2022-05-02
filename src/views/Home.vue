@@ -28,15 +28,8 @@ export default {
   components: {
     ProductCatalog
   },
-  head: {
-    title: {
-      inner: 'Caseland',
-      separator: '|',
-      complement: 'Accesorios a la moda'
-    },
-    meta: [
-      { name: 'description', content: 'My description' }
-    ]
+  mounted() {
+    document.title = 'Caseland | Accesorios a la moda'
   },
   computed: mapGetters(['products']),
 }
