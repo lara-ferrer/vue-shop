@@ -37,7 +37,7 @@ export default {
 
 <style>
   #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat', Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
@@ -47,6 +47,16 @@ export default {
   main {
     margin: 5rem 0;
   }
+
+  h1 {
+    font-weight: 700!important;
+    font-size: 3rem!important;
+  }
+
+  h2 {
+    font-weight: 600!important;
+    font-size: 2rem!important;
+  }
   
   .button {
     padding: 0.5rem 1rem;
@@ -55,6 +65,7 @@ export default {
     text-decoration: none;
     font-weight: 700;
     transition: 0.2s ease-in;
+    border: none;
   }
 
   .button:hover {
