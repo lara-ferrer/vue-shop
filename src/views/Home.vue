@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <b-container class="bv-example-row">
+    <b-container>
       <b-row>
         <b-col sm="12" lg="4" v-for="product in products" :key="product.id">
           <ProductCatalog
@@ -28,15 +28,8 @@ export default {
   components: {
     ProductCatalog
   },
-  head: {
-    title: {
-      inner: 'Caseland',
-      separator: '|',
-      complement: 'Accesorios a la moda'
-    },
-    meta: [
-      { name: 'description', content: 'My description' }
-    ]
+  mounted() {
+    document.title = 'Caseland | Accesorios a la moda'
   },
   computed: mapGetters(['products']),
 }

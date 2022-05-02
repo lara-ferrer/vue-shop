@@ -37,6 +37,9 @@
 import RelatedProducts from '../components/RelatedProducts.vue'
 export default {
   name: 'Product',
+  mounted() {
+    document.title = this.$route.params.name
+  },
   components: {
     RelatedProducts
   }
