@@ -32,7 +32,7 @@ const actions = {
         commit('updateCart', response.data);
     },
     async removeCart( { commit }, cart) {
-        await axios.delete(`${resourceURI}${cart.id}`);
+        await axios.delete(`${resourceURI}/${cart.id}`);
         commit('deleteCart', cart);
     }
 };
