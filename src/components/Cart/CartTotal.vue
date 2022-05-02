@@ -1,6 +1,6 @@
 <template>
     <div class="cart__total-amount">
-      {{ totalPrice }}
+      {{ totalPrice }} €
     </div>
 </template>
 
@@ -26,20 +26,8 @@ export default {
 </script>
 
 <style scoped>
-  .cart__item, .cart__product-info {
-    display: flex; 
-  }
-
-  .cart__item {
-    align-content: space-between;
-    gap: 1rem;
-  }
-
-  .cart__product-price {
-    display: inline;
-  }
-  
-  .cart__item__image {
-    width: 10%;
+  .cart__total-amount {
+    font-size: 1.5rem;
+    font-weight: 600;
   }
 </style>
