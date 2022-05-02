@@ -10,24 +10,25 @@ const getters = {
     cart: state => state.cart
 };
 
+let config = { 
+    headers: {
+        'Content-type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': '*'
+    }
+}
+
 const actions = {
     async fetchCart({ commit }) {
         const response = await axios.get(resourceURI);    
         commit('setCart', response.data);
     },
     async addToCart( { commit }, cart) {
-        let config = { 
-            headers: {
-                'Content-type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': '*'
-            }
-        }
         const response = await axios.post(resourceURI, cart, config);
         commit('newCart', response.data);
     },
     async updateCart( { commit }, cart) {
-        const response = await axios.put(`${resourceURI}${cart.id}`, cart);
+        const response = await axios.put(`${resourceURI}/${cart.id}`, cart, config);
         commit('updateCart', response.data);
     },
     async removeCart( { commit }, cart) {
