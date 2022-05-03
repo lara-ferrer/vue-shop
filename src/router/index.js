@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Checkout from '../views/Checkout.vue'
 import Product from '../views/Product.vue'
+import Checkout from '../views/Checkout.vue'
 
 Vue.use(VueRouter)
 
@@ -18,7 +18,7 @@ const routes = [
     component: Checkout
   },
   { 
-    path: '/:product/:slug',
+    path: '/:slug',
     name: 'Product',
     component: Product
   },
