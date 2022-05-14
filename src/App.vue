@@ -68,6 +68,10 @@ export default {
   p, span {
     font-weight: 400;
   }
+
+  a {
+    text-decoration: none!important;
+  }
   
   .button {
     padding: 0.5rem 1rem;
