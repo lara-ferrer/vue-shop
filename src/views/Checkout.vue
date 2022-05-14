@@ -26,15 +26,15 @@
             </div>
             <div class="checkout__total__item">
               <p>Envío</p>
-              <p>3.95 €</p>
+              <p>¡INCLUÍDO!</p>
             </div>
             <div class="checkout__total__item">
               <p>TOTAL</p>
-              <p>3.95 €</p>
+              <CartTotal />
             </div>
           </div>
         </div>
-        <a href="#" class="button button--product mt-4">Hacer pedido</a>
+        <button class="button mt-4" @click="addOrder(cart)">Hacer pedido</button>
       </b-col>
     </b-row>
   </b-container>
@@ -44,12 +44,19 @@
 import { mapGetters } from 'vuex';
 import CartList from "../components/Cart/CartList.vue";
 import CartTotal from "../components/Cart/CartTotal.vue";
+import axios from 'axios';
 
 export default {
   name: 'Checkout',
   components: {
     CartList,
     CartTotal
+  },
+  methods: {
+    async addOrder(cart) {
+      await axios.post('http://localhost:3000/orders', cart);
+      this.$router.push({ path: '/orders' })
+    },
   },
   computed: {
     ...mapGetters(['cart']),
@@ -107,7 +114,7 @@ export default {
     border-bottom: none;
   }
 
-  .checkout__total__item:last-child p {
+  .checkout__total__item:last-child, .checkout__total__item:last-child p {
     font-weight: 700;
   }
 
