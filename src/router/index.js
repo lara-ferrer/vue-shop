@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Product from '../views/Product.vue'
 import Checkout from '../views/Checkout.vue'
+import OrderConfirmed from '../views/OrderConfirmed.vue'
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,11 @@ const routes = [
     path: '/checkout',
     name: 'Checkout',
     component: Checkout
+  },
+  { 
+    path: '/orders',
+    name: 'OrderConfirmed',
+    component: OrderConfirmed
   },
   { 
     path: '/:slug',
