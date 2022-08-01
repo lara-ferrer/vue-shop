@@ -2,8 +2,10 @@
   <div class="cart" v-if="isCartOpen">
     <div class="cart__overlay" @click="hideCart()" />
     <div class="cart__drawer">
-      <h2>Carrito</h2>
-      <b-icon-x-circle-fill @click="hideCart()" />
+      <span class="cart__close">
+        <b-icon-x-circle-fill @click="hideCart()" />
+      </span>
+      <h2 class="cart__title">Carrito</h2>
       <div v-if="cart.length">
         <div v-for="product in cart" :key="product.id" class="cart__list">
           <CartItem
@@ -52,10 +54,18 @@ export default {
 </script>
 
 <style scoped>
+.cart {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
 .cart__overlay {
   background-color: #c05cde66;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -67,14 +77,25 @@ export default {
   top: 0;
   right: 0;
   width: 35vw;
-  height: 100vh;
+  height: 100%;
   box-shadow: 1px 5px 8px 6px #ababab;
   padding: 2em;
   color: #000;
   z-index: 9999;
 }
 
+.cart__close {
+  position: absolute;
+  right: 2em;
+  top: 1em;
+  font-size: 1.5em;
+}
+
+.cart__title {
+  margin-top: 2em;
+}
+
 .cart__list {
-  margin: 1rem 0;
+  margin: 2em 0;
 }
 </style>
