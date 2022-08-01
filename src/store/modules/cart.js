@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const resourceURI = "http://localhost:3000/cart";
+const resourceURI = "https://localhost:5001/Cart";
 
 const state = {
     cart: []
@@ -28,7 +28,7 @@ const actions = {
         commit('newCart', response.data);
     },
     async updateCart( { commit }, cart) {
-        const response = await axios.put(`${resourceURI}/${cart.id}`, cart, config);
+        const response = await axios.put(resourceURI, cart, config);
         commit('updateCart', response.data);
     },
     async removeCart( { commit }, cart) {
@@ -42,9 +42,9 @@ const mutations = {
     newCart: (state, cart) => state.cart.unshift(cart),
     updateCart: (state, updatedCart) => {
         const index = state.cart.findIndex(p => p.id === updatedCart.id);
-        if(index !== -1) {
+        if (index !== -1) {
             state.cart.splice(index, 1, updatedCart);
-        }        
+        }
     },
     deleteCart: (state, cart) => state.cart = state.cart.filter(p => cart.id !== p.id),
 };
