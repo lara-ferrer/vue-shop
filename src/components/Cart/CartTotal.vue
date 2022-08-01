@@ -19,7 +19,7 @@ export default {
         finalPrice += item.quantity * product.price;
       });
 
-      return finalPrice;
+      return finalPrice.toFixed(2);
     }
   },
 }
