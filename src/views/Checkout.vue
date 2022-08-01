@@ -19,43 +19,59 @@
       <b-col sm="12" md="4" class="checkout__total">
         <h2>Total</h2>
         <CartTotal />
+        <button class="button" @click="placeOrder(cart)">
+          Hacer pedido
+        </button>
+        <p v-if="error">ERROR EN EL PEDIDO!!</p>
       </b-col>
     </b-row>
   </b-container>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from "vuex";
 import CartItem from "../components/Cart/CartItem.vue";
 import CartTotal from "../components/Cart/CartTotal.vue";
+import OrderCompleted from '../views/OrderCompleted.vue'
 
 export default {
-  name: 'Checkout',
+  name: "Checkout",
   components: {
     CartItem,
-    CartTotal
+    CartTotal,
+  },
+  methods: {
+    ...mapActions(["addOrder"]),
+    placeOrder(cart) {
+      this.addOrder(cart);
+      this.$router.push({ 
+        path: '/order-completed',
+        name: 'Order Completed',
+        component: OrderCompleted
+      });
+    }
   },
   computed: {
-    ...mapGetters(['cart']),
+    ...mapGetters(["cart", "orders"]),
   },
   mounted() {
-    document.title = 'Checkout | Caseland'
+    document.title = "Checkout | Caseland";
   },
-}
+};
 </script>
 
 <style scoped>
-  .checkout__title {
-    text-align: left;
-    margin-bottom: 2rem;
-  }
+.checkout__title {
+  text-align: left;
+  margin-bottom: 2rem;
+}
 
-  .checkout__no-products {
-    text-align: left;
-  }
+.checkout__no-products {
+  text-align: left;
+}
 
-  .checkout__total {
-    text-align: left;
-    border-left: 1px solid rgb(166, 166, 166);
-  }
+.checkout__total {
+  text-align: left;
+  border-left: 1px solid rgb(166, 166, 166);
+}
 </style>

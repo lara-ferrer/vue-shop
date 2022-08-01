@@ -23,11 +23,12 @@ const actions = {
         const response = await axios.get(resourceURI);    
         commit('setOrder', response.data);
     },
-    async addOrder( { commit }, cart) {
+    async addOrder({ commit }, cart) {
         const parsedOrderDetails = JSON.parse(JSON.stringify(cart));
         const finalOrder = {
-            OrderDetails: parsedOrderDetails
+            orderDetails: parsedOrderDetails
         }
+        console.log(finalOrder);
         const response = await axios.post(resourceURI, finalOrder, config);
         commit('newOrder', response.data);
     },
