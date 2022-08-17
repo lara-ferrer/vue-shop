@@ -24,10 +24,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-  .cart__total-amount {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
-</style>
