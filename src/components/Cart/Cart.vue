@@ -1,9 +1,9 @@
 <template>
-  <div class="cart" v-if="isCartOpen">
-    <div class="cart__overlay" @click="hideCart()" />
+  <div class="cart">
+    <div class="cart__overlay" @click="$emit('hide-cart')" />
     <div class="cart__drawer">
       <h2>Carrito</h2>
-      <b-icon-x-circle-fill @click="hideCart()" class="cart__close" />
+      <b-icon-x-circle-fill @click="$emit('hide-cart')" class="cart__close" />
       <div v-if="cart.length">
         <div v-for="product in cart" :key="product.id">
           <CartList
@@ -41,14 +41,6 @@ export default {
     BIconXCircleFill,
     CartList,
     CartTotal,
-  },
-  props: {
-    isCartOpen: Boolean,
-  },
-  methods: {
-    hideCart() {
-      this.isCartOpen = !this.isCartOpen;
-    },
   },
   computed: {
     ...mapGetters(["cart", "products"]),
