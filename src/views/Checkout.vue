@@ -33,7 +33,6 @@ import { mapGetters, mapActions } from "vuex";
 import CartList from "../components/Cart/CartList.vue";
 import CartTotal from "../components/Cart/CartTotal.vue";
 import OrderCompleted from '../views/OrderCompleted.vue'
-import axios from 'axios';
 
 export default {
   name: "Checkout",
@@ -42,18 +41,16 @@ export default {
     CartTotal,
   },
   methods: {
-    ...mapActions(["addOrder"]),
+    ...mapActions(["addOrder", "removeCart"]),
     placeOrder(cart) {
       this.addOrder(cart);
+      this.removeCart(cart);
+      
       this.$router.push({ 
         path: '/order-completed',
         name: 'Order Completed',
         component: OrderCompleted
       });
-    },
-    addOrder(cart) {
-      axios.post('http://localhost:5000/Order', cart);
-      this.$router.push({ path: '/orders' })
     },
   },
   computed: {
