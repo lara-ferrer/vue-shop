@@ -32,7 +32,8 @@ const actions = {
         commit('updateCart', response.data);
     },
     async removeCart( { commit }, cart) {
-        await axios.delete(`${resourceURI}/${cart.id}`);
+        const parsedCartDetails = JSON.parse(JSON.stringify(cart));
+        await axios.delete(resourceURI, { data: parsedCartDetails }, config);
         commit('deleteCart', cart);
     }
 };
