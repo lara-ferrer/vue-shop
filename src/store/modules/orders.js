@@ -28,7 +28,6 @@ const actions = {
         const finalOrder = {
             orderDetails: parsedOrderDetails
         }
-        console.log(finalOrder);
         const response = await axios.post(resourceURI, finalOrder, config);
         commit('newOrder', response.data);
     },
