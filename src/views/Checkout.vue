@@ -1,9 +1,9 @@
 <template class="checkout">
   <b-container>
-    <b-row>
+    <b-row v-if="cart.length > 0">
       <b-col sm="12" md="8">
         <h1 class="checkout__title">Checkout</h1>
-        <div v-if="cart.length">
+        <div>
           <div v-for="product in cart" :key="product.id">
             <CartList
               :id="product.id"
@@ -11,9 +11,6 @@
               :quantity="product.quantity"
             />
           </div>
-        </div>
-        <div v-else>
-          <p class="checkout__no-products">No hay productos en el carrito</p>
         </div>
       </b-col>
       <b-col sm="12" md="4" class="checkout__total">
@@ -25,6 +22,13 @@
         <p v-if="error">ERROR EN EL PEDIDO!!</p>
       </b-col>
     </b-row>
+    <b-row v-if="cart.length === 0">
+      <b-col sm="12" md="8">
+        <h1 class="checkout__title">Checkout</h1>
+        <p class="checkout__no-products">No hay productos en el carrito</p>
+      </b-col>
+    </b-row>
+
   </b-container>
 </template>
 

@@ -3,6 +3,7 @@
       <router-link to="/"><img src="../assets/images/logo.png" class="nav__logo" alt="Logotipo Caseland"></router-link>
       <div class="nav__menu">
         <router-link to="/" class="nav__link">Inicio</router-link>
+        <router-link to="/tienda" class="nav__link">Tienda</router-link>
         <b-icon-cart-fill class="nav__cart" @click="showCart()" />
         <div v-if="isCartOpen">
           <Cart @hide-cart="hideCart" />

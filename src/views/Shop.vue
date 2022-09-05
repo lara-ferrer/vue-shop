@@ -1,22 +1,12 @@
 <template>
   <div class="home">
     <div class="hero">
-      <h1>Carcasas originales y con estilo</h1>
-      <h3>Convierte tu móvil en un súper accesorio con nuestras carcasas</h3>
+      <h1>Nuestra Tienda</h1>
+      <h3>Elige tu modelo de iPhone, Samsung, Huawei o Xiaomi favorito.</h3>
     </div>
     <b-container class="new-products">
       <b-row>
-        <b-col sm="12" lg="12">
-          <h2 class="new-products__title">Últimos productos añadidos</h2>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col
-          sm="12"
-          lg="4"
-          v-for="product in products.slice(0, 3)"
-          :key="product.id"
-        >
+        <b-col sm="12" lg="4" v-for="product in products" :key="product.id">
           <ProductCatalog
             :id="product.id"
             :name="product.name"
@@ -28,11 +18,6 @@
             :stock="product.stock"
           />
         </b-col>
-      </b-row>
-      <b-row>
-        <router-link :to="{ name: 'Tienda' }" class="button button--shop"
-          >Ver catálogo completo</router-link
-        >
       </b-row>
     </b-container>
   </div>
@@ -48,15 +33,19 @@ export default {
     ProductCatalog,
   },
   mounted() {
-    document.title = "Caseland | Accesorios a la moda";
+    document.title = "Tienda | Caseland";
   },
   computed: mapGetters(["products"]),
 };
 </script>
 
 <style scoped>
+main {
+  margin: 0 0 5rem 0;
+}
+
 .hero {
-  background-image: url("../assets/images/hero.jpg");
+  background-image: url("../assets/images/shop.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -64,7 +53,6 @@ export default {
   padding: 10em 0;
   margin-top: -5rem;
   color: #ffffff;
-  
 }
 
 .new-products {
@@ -78,10 +66,5 @@ export default {
 .product-catalog {
   display: flex;
   justify-content: space-between;
-}
-
-.button--shop {
-  width: 30%;
-  margin: 4rem auto 3rem auto;
 }
 </style>

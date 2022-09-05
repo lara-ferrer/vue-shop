@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Product from '../views/Product.vue'
 import Checkout from '../views/Checkout.vue'
 import OrderCompleted from '../views/OrderCompleted.vue'
+import Shop from '../views/Shop.vue'
 
 Vue.use(VueRouter)
 
@@ -12,6 +13,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  { 
+    path: '/tienda',
+    name: 'Tienda',
+    component: Shop
   },
   {
     path: '/checkout',
