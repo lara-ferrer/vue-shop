@@ -59,6 +59,7 @@ import { BCol } from "bootstrap-vue";
 export default {
   name: "Product",
   components: {
+    RelatedProducts,
     BContainer,
     BRow,
     BCol,
@@ -68,9 +69,6 @@ export default {
   },
   methods: {
     ...mapActions(["addToCart"]),
-  },
-  components: {
-    RelatedProducts,
   },
 };
 </script>
