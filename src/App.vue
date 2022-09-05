@@ -23,9 +23,10 @@ export default {
     this.fetchProducts()
     this.fetchCategories()
     this.fetchCart()
+    this.fetchOrders()
   },
   methods: {
-    ...mapActions(['fetchProducts', 'fetchCategories', 'fetchCart'])
+    ...mapActions(['fetchProducts', 'fetchCategories', 'fetchCart', 'fetchOrders'])
   },
   computed: {
     isMock() {
@@ -36,8 +37,10 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap');
+
   #app {
-    font-family: 'Montserrat', Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Nunito Sans', Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
@@ -49,13 +52,22 @@ export default {
   }
 
   h1 {
-    font-weight: 700!important;
+    font-weight: 800!important;
     font-size: 3rem!important;
   }
 
   h2 {
-    font-weight: 600!important;
+    font-weight: 800!important;
     font-size: 2rem!important;
+  }
+
+  h3 {
+    font-weight: 700!important;
+    font-size: 1.2rem!important;
+  }
+  
+  p, span {
+    font-weight: 400;
   }
   
   .button {
