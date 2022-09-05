@@ -41,11 +41,17 @@
 <script>
 import { mapGetters } from "vuex";
 import ProductCatalog from "../components/ProductCatalog.vue";
+import { BContainer } from "bootstrap-vue";
+import { BRow } from "bootstrap-vue";
+import { BCol } from "bootstrap-vue";
 
 export default {
   name: "Inicio",
   components: {
     ProductCatalog,
+    BContainer,
+    BRow,
+    BCol,
   },
   mounted() {
     document.title = "Caseland | Accesorios a la moda";
@@ -64,7 +70,6 @@ export default {
   padding: 10em 0;
   margin-top: -5rem;
   color: #ffffff;
-  
 }
 
 .new-products {

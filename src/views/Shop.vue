@@ -26,11 +26,17 @@
 <script>
 import { mapGetters } from "vuex";
 import ProductCatalog from "../components/ProductCatalog.vue";
+import { BContainer } from "bootstrap-vue";
+import { BRow } from "bootstrap-vue";
+import { BCol } from "bootstrap-vue";
 
 export default {
-  name: "Inicio",
+  name: "Tienda",
   components: {
     ProductCatalog,
+    BContainer,
+    BRow,
+    BCol,
   },
   mounted() {
     document.title = "Tienda | Caseland";

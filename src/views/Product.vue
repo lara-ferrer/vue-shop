@@ -52,9 +52,17 @@
 <script>
 import { mapActions } from "vuex";
 import RelatedProducts from "../components/RelatedProducts.vue";
+import { BContainer } from "bootstrap-vue";
+import { BRow } from "bootstrap-vue";
+import { BCol } from "bootstrap-vue";
 
 export default {
   name: "Product",
+  components: {
+    BContainer,
+    BRow,
+    BCol,
+  },
   mounted() {
     document.title = this.$route.params.name;
   },

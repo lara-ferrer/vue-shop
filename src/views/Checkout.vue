@@ -16,10 +16,7 @@
       <b-col sm="12" md="4" class="checkout__total">
         <h2>Total</h2>
         <CartTotal />
-        <button class="button" @click="placeOrder(cart)">
-          Hacer pedido
-        </button>
-        <p v-if="error">ERROR EN EL PEDIDO!!</p>
+        <button class="button" @click="placeOrder(cart)">Hacer pedido</button>
       </b-col>
     </b-row>
     <b-row v-if="cart.length === 0">
@@ -28,7 +25,6 @@
         <p class="checkout__no-products">No hay productos en el carrito</p>
       </b-col>
     </b-row>
-
   </b-container>
 </template>
 
@@ -36,24 +32,30 @@
 import { mapGetters, mapActions } from "vuex";
 import CartList from "../components/Cart/CartList.vue";
 import CartTotal from "../components/Cart/CartTotal.vue";
-import OrderCompleted from '../views/OrderCompleted.vue'
+import OrderCompleted from "../views/OrderCompleted.vue";
+import { BContainer } from "bootstrap-vue";
+import { BRow } from "bootstrap-vue";
+import { BCol } from "bootstrap-vue";
 
 export default {
   name: "Checkout",
   components: {
     CartList,
     CartTotal,
+    BContainer,
+    BRow,
+    BCol,
   },
   methods: {
     ...mapActions(["addOrder", "removeCart"]),
     placeOrder(cart) {
       this.addOrder(cart);
       this.removeCart(cart);
-      
-      this.$router.push({ 
-        path: '/order-completed',
-        name: 'Order Completed',
-        component: OrderCompleted
+
+      this.$router.push({
+        path: "/order-completed",
+        name: "Order Completed",
+        component: OrderCompleted,
       });
     },
   },
