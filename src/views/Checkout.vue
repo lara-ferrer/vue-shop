@@ -73,52 +73,13 @@ export default {
   text-align: left;
   margin-bottom: 2rem;
 }
-.row {
-  gap: 1em;
-}
+
 .checkout__no-products {
   text-align: left;
 }
+
 .checkout__total {
   text-align: left;
-  border: 1px solid rgb(166, 166, 166);
-  padding: 2em;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.checkout__total__table {
-  margin: 1em 0 2em 0;
-}
-
-.checkout__total__item {
-  display: flex;
-  border-bottom: 1px solid rgb(212, 212, 212);
-  justify-content: space-between;
-  align-self: center;
-  padding: 0.5em 0;
-}
-
-.checkout__total__item p {
-  margin: 0;
-}
-
-.checkout__total__item:first-child {
-  border-top: 1px solid rgb(212, 212, 212);
-}
-
-.checkout__total__item:last-child {
-  border-bottom: none;
-}
-
-.checkout__total__item:last-child,
-.checkout__total__item:last-child p {
-  font-weight: 700;
-}
-
-.button {
-  text-align: center;
+  border-left: 1px solid rgb(166, 166, 166);
 }
 </style>
