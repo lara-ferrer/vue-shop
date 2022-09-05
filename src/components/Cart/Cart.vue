@@ -1,9 +1,9 @@
 <template>
-  <div class="cart" v-if="isCartOpen">
-    <div class="cart__overlay" @click="hideCart()" />
+  <div class="cart">
+    <div class="cart__overlay" @click="$emit('hide-cart')" />
     <div class="cart__drawer">
       <h2>Carrito</h2>
-      <b-icon-x-circle-fill @click="hideCart()" class="cart__close" />
+      <b-icon-x-circle-fill @click="$emit('hide-cart')" class="cart__close" />
       <div v-if="cart.length">
         <div v-for="product in cart" :key="product.id">
           <CartList
@@ -21,9 +21,12 @@
           <p>Total:</p>
           <CartTotal />
         </div>
-        <router-link :to="{ name: 'Checkout' }" class="button"
-          >Pagar ahora</router-link
-        >
+        <router-link
+          :to="{ name: 'Checkout' }"
+          @click.native="$emit('hide-cart')"
+          class="button"
+          >Pagar ahora
+        </router-link>
       </div>
     </div>
   </div>
@@ -42,14 +45,6 @@ export default {
     CartList,
     CartTotal,
   },
-  props: {
-    isCartOpen: Boolean,
-  },
-  methods: {
-    hideCart() {
-      this.isCartOpen = !this.isCartOpen;
-    },
-  },
   computed: {
     ...mapGetters(["cart", "products"]),
   },
@@ -57,6 +52,14 @@ export default {
 </script>
 
 <style scoped>
+.cart {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
 .cart__overlay {
   background-color: #c05cde66;
   width: 100vw;
