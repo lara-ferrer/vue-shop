@@ -1,7 +1,7 @@
 <template>
     <div class="cart__item">
       <div class="cart__product-info">
-        <b-icon-trash class="cart__remove-icon" @click="updateCart({ id: id })" />
+        <b-icon-trash class="cart__remove-icon" @click="removeCart({ id: id })" />
         <img :src="`${getProductInfo.image}`" :alt="`${getProductInfo.name}`" class="cart__item__image">
         <p class="cart__item__title">{{ getProductInfo.name }}</p>
       </div>
