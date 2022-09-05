@@ -21,9 +21,12 @@
           <p>Total:</p>
           <CartTotal />
         </div>
-        <router-link :to="{ name: 'Checkout' }" class="button"
-          >Pagar ahora</router-link
-        >
+        <router-link
+          :to="{ name: 'Checkout' }"
+          @click.native="$emit('hide-cart')"
+          class="button"
+          >Pagar ahora
+        </router-link>
       </div>
     </div>
   </div>
