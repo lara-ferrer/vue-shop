@@ -80,6 +80,6 @@ export default {
 
 .checkout__total {
   text-align: left;
-  border-left: 1px solid rgb(166, 166, 166);
+  border-left: 2px solid rgb(166, 166, 166);
 }
 </style>
