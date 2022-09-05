@@ -8,6 +8,9 @@
           confirmación cuando sea enviado.
         </p>
         <p><strong>¡Muchas gracias por comprar en Caseland!</strong></p>
+        <router-link :to="{ name: 'Home' }" class="button"
+          >Volver al inicio</router-link
+        >
       </b-col>
     </b-row>
   </b-container>
